@@ -1,5 +1,5 @@
 * ScaleStore
-This is the source code for our published paper at SIGMOD'22: ScaleStore: A Fast and Cost-Efficient Storage Engine using DRAM, NVMe, and RDMA.
+This is the source code for our (Tobias Ziegler, Carsten Binnig and Viktor Leis) published paper at SIGMOD'22: ScaleStore: A Fast and Cost-Efficient Storage Engine using DRAM, NVMe, and RDMA.
 Paper can be found here: [[https://www.informatik.tu-darmstadt.de/media/datamanagement/pdf_publications/ScaleStore_preprint.pdf][Link]]
 
 ** Abstract
