@@ -133,6 +133,8 @@ For instance, the follwoing command can be used to run ycsb in a single node set
 
 ** Configuration
 The main configuration file in order to execute ScaleStore can be found in ~shared-headers/Defs.hpp~.
+
+*** IPs
 To configure the servers and their ips the following configuration needs to be adapted:
 
 #+begin_src cpp
@@ -147,11 +149,15 @@ const std::vector<std::vector<std::string>> NODES{
 };
 #+end_src cpp
 
+*** CPU Cores
+We implemented a very simple ~CoreManager~ which can be found in (~scalestore/backend/threads/CoreManager.hpp~).
+All configurations are hard-coded to fit our servers (2 NUMA nodes) and might need to be adapted to fit yours.
+
 ** Gflags help
-Besides the ~Defs.hpp~ file there are glfags parameters.
+Besides the ~Defs.hpp~ file there are gflags parameters.
 Most of them are stored in ~backend/ScaleStore/Config.hpp~.
-However, some are attached to the main exectuable file, e.g. ycsb has the ~YCSB_tuple_count~ flag.
-To see all (custom) glfags parameters and their description one can run:  
+However, some are attached to the main executable file, e.g. ycsb has the ~YCSB_tuple_count~ flag.
+To see all (custom) gflags parameters and their description one can run:  
 
 #+begin_src shell
 ./exe --help
