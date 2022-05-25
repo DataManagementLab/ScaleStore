@@ -182,17 +182,17 @@ In order to run them please consult the following github page: [[https://github.
 
 If you see the following exception at the startup of ScaleStore:
 
-#BEGIN_SRC
++#BEGIN_SRC
 "Consider adjusting BATCH_SIZE and PARTITIONS"
 in /home/tziegler/ScaleStore/backend/scalestore/storage/buffermanager/Buffermanager.cpp:62
-#END_SRC
++#END_SRC
 
 You would need to change the ~PARTITIONS~ and ~BATCH_SIZE~ variable in the ~Defs.hpp~ file.
 The reason is that we use a partitioned queue of batches to reduce contention in the free lists and accesses to the latch.
 To calculate the right number of batches per partition we use.
 
-#BEGIN_SRC
++#BEGIN_SRC
 NUMBER_BATCHES = (DRAM_SIZE / PAGE_SIZE) / PARTITIONS / BATCH_SIZE
-#END_SRC
++#END_SRC
 
 Therefore, this may be needed if the DRAM_SIZE is too small or the page size has been changed.
