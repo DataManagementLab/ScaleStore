@@ -59,7 +59,7 @@ Buffermanager::Buffermanager(rdma::CM<rdma::InitMessage>& cm, NodeID nodeId, s32
       storage::PartitionedQueue<storage::Page*, PARTITIONS, BATCH_SIZE, utils::Stack>::BatchHandle page_handle;
       for (size_t p_i = p_b; p_i < p_e; ++p_i) {
          auto rc = pageFreeList.try_push(pages[p_i], page_handle);
-         ensure(rc);
+         if(!rc) throw std::logic_error("Consider adjusting BATCH_SIZE and PARTITIONS");
       }
    });
    // -------------------------------------------------------------------------------------
@@ -81,7 +81,7 @@ Buffermanager::Buffermanager(rdma::CM<rdma::InitMessage>& cm, NodeID nodeId, s32
       for (size_t b_i = bf_b; b_i < bf_e; ++b_i) {
          ensure(!frames[b_i]->isHtBucket);
          auto rc = frameFreeList.try_push(frames[b_i], bf_handle);
-         ensure(rc);
+         if(!rc) throw std::logic_error("Consider adjusting BATCH_SIZE and PARTITIONS");
       }
    });
    // -------------------------------------------------------------------------------------
