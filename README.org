@@ -7,13 +7,26 @@ In this paper, we propose ScaleStore, a novel distributed storage engine that ex
 
 ** Citation
 
-#+begin_src    
-   @inproceedings{tziegler22,
-    author    = {Tobias Ziegler and Carsten Binnig and Viktor Leis},
-    title     = {ScaleStore: A Fast and Cost-Efficient Storage Engine
-using DRAM, NVMe, and RDMA},
-    booktitle = {SIGMOD},
-    year      = {2022}
+#+begin_src   
+@inproceedings{DBLP:conf/sigmod/0001BL22,
+  author    = {Tobias Ziegler and
+               Carsten Binnig and
+               Viktor Leis},
+  editor    = {Zachary Ives and
+               Angela Bonifati and
+               Amr El Abbadi},
+  title     = {ScaleStore: {A} Fast and Cost-Efficient Storage Engine using DRAM,
+               NVMe, and {RDMA}},
+  booktitle = {{SIGMOD} '22: International Conference on Management of Data, Philadelphia,
+               PA, USA, June 12 - 17, 2022},
+  pages     = {685--699},
+  publisher = {{ACM}},
+  year      = {2022},
+  url       = {https://doi.org/10.1145/3514221.3526187},
+  doi       = {10.1145/3514221.3526187},
+  timestamp = {Tue, 14 Jun 2022 18:31:24 +0200},
+  biburl    = {https://dblp.org/rec/conf/sigmod/0001BL22.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 #+end_src
 
