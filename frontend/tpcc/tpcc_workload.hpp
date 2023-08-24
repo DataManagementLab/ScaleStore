@@ -211,7 +211,11 @@ void loadOrders(Integer w_id, Integer d_id) {
    std::vector<Integer> c_ids;
    for (Integer i = 1; i <= 3000; i++)
       c_ids.push_back(i);
-   random_shuffle(c_ids.begin(), c_ids.end());
+
+   std::mt19937 rng(std::random_device{}()); // mt19937 is a random number generator from the <random> header
+   std::shuffle(std::begin(c_ids), std::end(c_ids), rng);
+
+   
    Integer o_id = 1;
    for (Integer o_c_id : c_ids) {
       Integer o_carrier_id = (o_id < 2101) ? rnd(10) + 1 : 0;

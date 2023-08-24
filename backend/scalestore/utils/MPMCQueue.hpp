@@ -51,12 +51,7 @@ static constexpr bool powerOfTwo(uint64_t n)
    return n && (!(n & (n-1)));
 }
 
-#ifdef __cpp_lib_hardware_interference_size
-static constexpr size_t hardwareInterferenceSize =
-    std::hardware_destructive_interference_size;
-#else
 static constexpr size_t hardwareInterferenceSize = 64;
-#endif
 
 #if defined(__cpp_aligned_new)
 template <typename T> using AlignedAllocator = std::allocator<T>;

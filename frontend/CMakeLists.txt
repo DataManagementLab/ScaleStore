@@ -1,6 +1,3 @@
-add_executable(frontend frontend.cpp)
-add_dependencies(frontend scalestore)
-target_link_libraries(frontend scalestore numa)
 
 add_executable(OLAP OLAP.cpp)
 add_dependencies(OLAP scalestore)

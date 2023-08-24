@@ -1,5 +1,6 @@
 #include "CPUCounters.hpp"
 #include "../CounterRegistry.hpp"
+#include <memory>
 // -------------------------------------------------------------------------------------
 namespace scalestore {
 namespace profiling {

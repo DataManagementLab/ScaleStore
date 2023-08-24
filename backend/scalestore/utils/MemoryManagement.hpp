@@ -3,6 +3,7 @@
 #include <sys/mman.h>
 #include <cassert>
 #include <iostream>
+#include <mutex>
 #include <memory_resource>
 // -------------------------------------------------------------------------------------
 namespace scalestore

@@ -5,6 +5,7 @@
 #include "scalestore/storage/buffermanager/BufferFrameGuards.hpp"
 // -------------------------------------------------------------------------------------
 #include <optional>
+#include <functional>
 #include <experimental/source_location>
 // -------------------------------------------------------------------------------------
 namespace scalestore {
