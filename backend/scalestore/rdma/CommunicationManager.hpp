@@ -503,6 +503,28 @@ public:
     if (ret == -1)
       throw std::runtime_error("Could not create id");
 
+    {
+      struct addrinfo *res;
+      int ret = getaddrinfo(FLAGS_ownIp.c_str(), nullptr, nullptr, &res);
+      if (ret) {
+        throw std::runtime_error("getaddrinfo failed");
+      }
+
+      struct sockaddr_storage addr;
+
+      if (res->ai_family == PF_INET) {
+        memcpy(&addr, res->ai_addr, sizeof(struct sockaddr_in));
+      } else if (res->ai_family == PF_INET6) {
+        memcpy(&addr, res->ai_addr, sizeof(struct sockaddr_in6));
+      } else {
+        throw std::runtime_error("Unexpected ai_family");
+      }
+      freeaddrinfo(res);
+      if (rdma_bind_addr(outgoingCmId, (struct sockaddr *)&addr) < 0) {
+        throw std::runtime_error("rdma_bind failed");
+      }
+    }
+
     struct sockaddr_storage sin;
     getAddr(ip, (struct sockaddr *)&sin);
     resolveAddr(outgoingChannel, outgoingCmId, sin);
