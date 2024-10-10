@@ -39,7 +39,7 @@ void MessageHandler::init() {
    // -------------------------------------------------------------------------------------
    size_t numConnections = (FLAGS_worker) * (FLAGS_nodes - 1);
    connectedClients = numConnections;
-   while (cm.getNumberIncomingConnections() != (numConnections))
+   while (cm.getNumberIncomingConnections() < (numConnections))
       ;  // block until client is connected
    // -------------------------------------------------------------------------------------
    std::cout << "Number connections " << numConnections << std::endl;
